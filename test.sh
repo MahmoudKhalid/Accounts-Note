@@ -21,17 +21,17 @@ if [ $Username == "admin" -a $Password == "admin" ]; then
   do
     read -p "Shell # " Shell
     if [ $Shell == "show" ]; then
-      showdb=`tail datafile/newaccount.txt`
+      showdb=`tail newaccount.txt`
       echo -e "${y}$showdb${n}"
     elif [ $Shell == "create" ]; then
       read -p "Username: " user
       read -p "Passowrd: " password
       read -p "Site Name: " site
-      echo "$user,$password,$site" >> datafile/newaccount.txt
+      echo "$user,$password,$site" >> newaccount.txt
       echo -e "${g}Success create${n} $user $password $site"
     elif [ $Shell == "search" ]; then
       read -p "Username: " acc
-      get=`cat datafile/newaccount.txt | grep $acc`
+      get=`cat newaccount.txt | grep $acc`
       echo -e "${g} $get ${n}"
     elif [ $Shell == "help" ]; then
       helper
